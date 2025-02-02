@@ -1,6 +1,7 @@
 import sys
 import pygame
 from person import Person
+from medicalIssue import MedicalIssue
 
 
 def main():
@@ -16,7 +17,27 @@ def main():
     persons = pygame.sprite.Group()
     Persons.containers = (persons, updatable)
 
-    
+    dt = 0
+
+    # Game Loop ----------
+    while (True):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+
+        for thing in updatable:
+            thing.update(dt=dt)
+
+        screen.fill("black")
+
+        for thing in drawable:
+            thing.draw(screen)
+        
+        pygame.display.flip()
+
+        # limit the framerate to 60 FPS
+        dt = clock.tick(60) / 1000
+
 
 
 if __name__ == "__main__":
