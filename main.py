@@ -2,6 +2,7 @@ import sys
 import pygame
 from person import Person
 from medicalIssue import MedicalIssue
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 def main():
